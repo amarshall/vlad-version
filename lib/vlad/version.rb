@@ -13,7 +13,7 @@ namespace :vlad do
     end
 
     task :tag do
-      defined? environment or environment = nil
+      environment = self.environment rescue nil
       time_str = release_time.iso8601.tr(':', '-')
       tag_name = [environment, time_str].compact.join('_')
       tag_message = [
